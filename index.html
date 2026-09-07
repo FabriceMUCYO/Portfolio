@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mucyo Fabrice — Software Engineer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+  --bg:#09090b;
+  --card:#111113;
+  --card2:#151518;
+  --border:#27272a;
+  --text:#f4f4f5;
+  --muted:#92929a;
+  --accent:#3ddc84;
+
+  --display:"Space Grotesk",sans-serif;
+  --body:"Inter",sans-serif;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+::selection{
+  background:var(--accent);
+  color:#000;
+}
+
+.container{
+  width:min(1080px,calc(100% - 40px));
+  margin:auto;
+}
+
+section{
+  padding:100px 0;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  background:rgba(9,9,11,.82);
+  backdrop-filter:blur(15px);
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.nav-inner{
+  height:72px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:-.05em;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:var(--muted);
+  font-size:13px;
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:var(--text);
+}
+
+.nav-btn{
+  padding:9px 16px;
+
+  border:1px solid var(--border);
+  border-radius:100px;
+
+  font-size:12px;
+
+  transition:.2s;
+}
+
+.nav-btn:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+@media(max-width:700px){
+
+  .nav-links{
+    display:none;
+  }
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:530px;
+
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+
+  align-items:center;
+  gap:70px;
+}
+
+.availability{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  padding:7px 12px;
+
+  border:1px solid var(--border);
+  border-radius:100px;
+
+  background:var(--card);
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  margin-bottom:25px;
+}
+
+.status{
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--accent);
+  box-shadow:0 0 10px var(--accent);
+}
+
+.hero h1{
+  font-family:var(--display);
+
+  font-size:clamp(55px,9vw,110px);
+
+  line-height:.9;
+
+  letter-spacing:-.07em;
+
+  margin-bottom:28px;
+}
+
+.hero h1 span{
+  color:transparent;
+  -webkit-text-stroke:1px #777;
+}
+
+.hero p{
+  max-width:570px;
+
+  color:var(--muted);
+
+  font-size:16px;
+
+  line-height:1.8;
+
+  margin-bottom:30px;
+}
+
+.hero p strong{
+  color:var(--text);
+  font-weight:500;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  padding:12px 18px;
+
+  border-radius:100px;
+
+  font-size:12px;
+  font-weight:600;
+
+  transition:.2s;
+}
+
+.primary{
+  background:#fff;
+  color:#000;
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+}
+
+.secondary{
+  border:1px solid var(--border);
+}
+
+.secondary:hover{
+  border-color:#555;
+}
+
+
+/* HERO PHOTO */
+
+.hero-photo{
+  position:relative;
+}
+
+.photo{
+  width:320px;
+  height:400px;
+
+  margin:auto;
+
+  padding:9px;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:grayscale(100%);
+
+  transition:filter .5s ease, transform .5s ease;
+}
+
+.photo:hover img{
+  filter:grayscale(0%);
+  transform:scale(1.02);
+}
+
+.photo::after{
+  content:"";
+
+  position:absolute;
+
+  width:80px;
+  height:80px;
+
+  right:15px;
+  top:-10px;
+
+  border-top:1px solid var(--accent);
+  border-right:1px solid var(--accent);
+}
+
+@media(max-width:800px){
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding-top:70px;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .buttons{
+    justify-content:center;
+  }
+
+  .photo{
+    width:250px;
+    height:320px;
+  }
+
+}
+
+
+/* =========================
+   SECTION HEAD
+========================= */
+
+.label{
+  color:var(--accent);
+
+  font-family:monospace;
+
+  font-size:11px;
+
+  margin-bottom:12px;
+}
+
+.title{
+  font-family:var(--display);
+
+  font-size:clamp(35px,5vw,55px);
+
+  letter-spacing:-.055em;
+
+  line-height:1;
+
+  margin-bottom:15px;
+}
+
+.subtitle{
+  color:var(--muted);
+
+  font-size:14px;
+
+  max-width:570px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+  display:grid;
+
+  grid-template-columns:.7fr 1.3fr;
+
+  gap:80px;
+}
+
+.about-heading{
+  font-family:var(--display);
+
+  font-size:65px;
+
+  line-height:.9;
+
+  letter-spacing:-.07em;
+}
+
+.about-heading span{
+  color:var(--accent);
+}
+
+.about-text{
+  color:var(--muted);
+
+  font-size:15px;
+
+  line-height:1.9;
+}
+
+.about-text p{
+  margin-bottom:18px;
+}
+
+.about-text strong{
+  color:var(--text);
+  font-weight:500;
+}
+
+@media(max-width:750px){
+
+  .about{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills{
+  margin-top:45px;
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  border-top:1px solid var(--border);
+  border-left:1px solid var(--border);
+}
+
+.skill-box{
+  padding:25px;
+
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.skill-box h3{
+  font-family:var(--display);
+
+  font-size:16px;
+
+  margin-bottom:17px;
+}
+
+.skill-list{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+}
+
+.skill{
+  padding:6px 10px;
+
+  border:1px solid var(--border);
+
+  background:var(--card);
+
+  border-radius:100px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  transition:.2s;
+}
+
+.skill:hover{
+  color:var(--accent);
+  border-color:var(--accent);
+}
+
+@media(max-width:750px){
+
+  .skills{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project-controls{
+  margin:45px 0 25px;
+
+  display:flex;
+  justify-content:space-between;
+
+  gap:15px;
+
+  flex-wrap:wrap;
+}
+
+.filters{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.filter{
+  border:1px solid var(--border);
+
+  background:transparent;
+
+  color:var(--muted);
+
+  padding:8px 14px;
+
+  border-radius:100px;
+
+  font-size:11px;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.filter:hover,
+.filter.active{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+}
+
+.projects{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:20px;
+}
+
+.project{
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:12px;
+
+  overflow:hidden;
+
+  transition:.25s;
+}
+
+.project:hover{
+  transform:translateY(-4px);
+  border-color:#444;
+}
+
+.project-image{
+  height:230px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      #1d2922,
+      transparent 45%
+    ),
+    #0d0d0f;
+
+  border-bottom:1px solid var(--border);
+}
+
+.project-image img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.placeholder{
+  color:#555;
+
+  font-family:monospace;
+
+  font-size:11px;
+}
+
+.project-content{
+  padding:23px;
+}
+
+.number{
+  color:var(--accent);
+
+  font-family:monospace;
+
+  font-size:10px;
+
+  margin-bottom:8px;
+}
+
+.project h3{
+  font-family:var(--display);
+
+  font-size:21px;
+
+  margin-bottom:8px;
+}
+
+.project p{
+  color:var(--muted);
+
+  font-size:12px;
+
+  line-height:1.7;
+
+  margin-bottom:17px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  margin-bottom:18px;
+}
+
+.tags span{
+  background:var(--card2);
+
+  padding:5px 8px;
+
+  border-radius:5px;
+
+  color:#aaa;
+
+  font-size:10px;
+}
+
+.project-link{
+  font-size:11px;
+
+  font-weight:600;
+}
+
+.project-link:hover{
+  color:var(--accent);
+}
+
+@media(max-width:750px){
+
+  .projects{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+/* =========================
+   JOURNEY
+========================= */
+
+.journey-list{
+  margin-top:45px;
+
+  border-top:1px solid var(--border);
+}
+
+.journey-item{
+  display:grid;
+
+  grid-template-columns:150px 1fr;
+
+  gap:30px;
+
+  padding:25px 0;
+
+  border-bottom:1px solid var(--border);
+}
+
+.journey-date{
+  color:var(--accent);
+
+  font-family:monospace;
+
+  font-size:10px;
+}
+
+.journey-item h3{
+  font-family:var(--display);
+
+  font-size:18px;
+
+  margin-bottom:5px;
+}
+
+.journey-item p{
+  color:var(--muted);
+
+  font-size:12px;
+
+  max-width:650px;
+}
+
+@media(max-width:600px){
+
+  .journey-item{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  text-align:center;
+
+  padding-bottom:140px;
+}
+
+.contact .title{
+  max-width:700px;
+
+  margin:0 auto 18px;
+}
+
+.contact .subtitle{
+  margin:auto;
+}
+
+.contact-button{
+  margin-top:30px;
+}
+
+.social-links{
+  margin-top:35px;
+
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+}
+
+.social{
+  padding:9px 14px;
+
+  border:1px solid var(--border);
+
+  border-radius:100px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  transition:.2s;
+}
+
+.social:hover{
+  color:var(--accent);
+  border-color:var(--accent);
+}
+
+
+/* =========================
+   FLOATING SOCIAL BUTTON
+========================= */
+
+.social-float{
+  position:fixed;
+
+  right:25px;
+  bottom:25px;
+
+  z-index:200;
+}
+
+.float-toggle{
+  width:52px;
+  height:52px;
+
+  border:1px solid var(--border);
+
+  border-radius:50%;
+
+  background:#fff;
+
+  color:#09090b;
+
+  cursor:pointer;
+
+  font-family:var(--body);
+
+  font-size:20px;
+  font-weight:500;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+  transition:.25s;
+}
+
+.float-toggle:hover{
+  transform:scale(1.07);
+
+  border-color:var(--accent);
+
+  color:var(--accent);
+}
+
+.float-menu{
+  position:absolute;
+
+  right:0;
+  bottom:65px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+
+  opacity:0;
+  visibility:hidden;
+
+  transform:translateY(10px);
+
+  transition:.25s;
+}
+
+.social-float.open .float-menu{
+  opacity:1;
+  visibility:visible;
+
+  transform:translateY(0);
+}
+
+.float-link{
+  width:45px;
+  height:45px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:50%;
+
+  color:#fff;
+
+  font-size:17px;
+
+  transition:.2s;
+}
+
+.float-link:hover{
+  color:var(--accent);
+
+  border-color:var(--accent);
+
+  transform:translateX(-3px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  border-top:1px solid var(--border);
+
+  padding:25px 0;
+
+  color:#666;
+
+  font-size:10px;
+}
+
+.footer-inner{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+}
+
+@media(max-width:600px){
+
+  .footer-inner{
+    flex-direction:column;
+  }
+
+}
+
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+  opacity:0;
+
+  transform:translateY(20px);
+
+  transition:.7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+
+  transform:translateY(0);
+}
+
+.project-status{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+
+  padding:5px 9px;
+
+  border:1px solid var(--border);
+  border-radius:100px;
+
+  color:var(--accent);
+
+  font-size:9px;
+  font-weight:600;
+
+  margin-bottom:12px;
+}
+
+.project-status::before{
+  content:"";
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:var(--accent);
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAV ================= -->
+
+<nav>
+
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+      MF<span>.</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#journey">Journey</a></li>
+
+    </ul>
+
+    <a href="https://wa.me/+250791762929" class="nav-btn">
+      Let's Talk ↗
+    </a>
+
+  </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero container">
+
+  <div class="reveal">
+
+    <div class="availability">
+
+      <span class="status"></span>
+
+      Open to opportunities
+
+    </div>
+
+    <h1>
+
+      <span>MUCYO</span><br>
+      FABRICE
+
+    </h1>
+
+    <p>
+
+      I'm a Software Engineering student building
+      <strong>web applications, APIs, data-driven systems
+      and practical digital solutions.</strong>
+
+      I learn by building and I'm always looking
+      for the next thing to create.
+
+    </p>
+
+    <div class="buttons">
+
+      <a href="#work" class="btn primary">
+        View My Work ↓
+      </a>
+
+      <a href="MUCYO_Fabrice_CV.pdf"
+         download
+         class="btn secondary">
+        Download CV ↓
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-photo reveal">
+
+    <div class="photo">
+
+      <img src="fab.jpg"
+           alt="Mucyo Fabrice">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+  <div class="container">
+
+    <div class="about">
+
+      <div class="reveal">
+
+        <div class="label">
+          01 / ABOUT
+        </div>
+
+        <div class="about-heading">
+
+          BUILD.<br>
+          LEARN.<br>
+          <span>REPEAT.</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="about-text reveal">
+
+        <p>
+          I'm <strong>Mucyo Fabrice</strong>, a Software Engineering
+          student at the Adventist University of Central Africa
+          in Kigali, Rwanda.
+        </p>
+
+        <p>
+          I enjoy turning ideas into working digital products.
+          My work covers web development, Python, APIs,
+          databases, data processing and networking.
+        </p>
+
+        <p>
+          I'm also a graphic designer, so I naturally care about
+          how technology looks and feels — not just whether it works.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+  <div class="container">
+
+    <div class="label">
+      02 / SKILLS
+    </div>
+
+    <h2 class="title">
+      My toolkit.
+    </h2>
+
+    <p class="subtitle">
+      Technologies and tools I've worked with through
+      projects, coursework and experimentation.
+    </p>
+
+
+    <div class="skills reveal">
+
+
+      <div class="skill-box">
+
+        <h3>Development</h3>
+
+        <div class="skill-list">
+
+          <span class="skill">Python</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">Java</span>
+          <span class="skill">C</span>
+          <span class="skill">PHP</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-box">
+
+        <h3>Data & APIs</h3>
+
+        <div class="skill-list">
+
+          <span class="skill">REST APIs</span>
+          <span class="skill">Pandas</span>
+          <span class="skill">ETL</span>
+          <span class="skill">PostgreSQL</span>
+          <span class="skill">SQL</span>
+          <span class="skill">Tableau</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-box">
+
+        <h3>Tools</h3>
+
+        <div class="skill-list">
+
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">VS Code</span>
+          <span class="skill">Postman</span>
+          <span class="skill">Figma</span>
+          <span class="skill">Adobe WorkSpace</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-box">
+
+        <h3>Systems</h3>
+
+        <div class="skill-list">
+
+          <span class="skill">Linux</span>
+          <span class="skill">Windows</span>
+          <span class="skill">VirtualBox</span>
+          <span class="skill">VMware</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-box">
+
+        <h3>Networking</h3>
+
+        <div class="skill-list">
+
+          <span class="skill">Cisco Packet Tracer</span>
+          <span class="skill">Active Directory</span>
+          <span class="skill">GPO</span>
+          <span class="skill">pfSense</span>
+          <span class="skill">DHCP</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-box">
+
+        <h3>Design</h3>
+
+        <div class="skill-list">
+
+          <span class="skill">Graphic Design</span>
+          <span class="skill">UI Design</span>
+          <span class="skill">Web Design</span>
+          <span class="skill">Branding</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="work">
+
+  <div class="container">
+
+    <div class="label">
+      03 / SELECTED WORK
+    </div>
+
+    <h2 class="title">
+      Things I've built.
+    </h2>
+
+    <p class="subtitle">
+      A few projects that represent what I enjoy
+      learning and building.
+    </p>
+
+
+    <div class="project-controls">
+
+      <div class="filters">
+
+        <button class="filter active"
+                data-filter="all">
+          All
+        </button>
+
+        <button class="filter"
+                data-filter="web">
+          Web
+        </button>
+
+        <button class="filter"
+                data-filter="data">
+          Data
+        </button>
+
+        <button class="filter"
+                data-filter="network">
+          Network
+        </button>
+
+      </div>
+
+      <a href="https://github.com/FabriceMUCYO"
+         target="_blank"
+         class="btn secondary">
+        GitHub ↗
+      </a>
+
+    </div>
+
+
+    <div class="projects">
+
+
+      <!-- PROJECT 1 -->
+
+      <article class="project reveal"
+               data-category="data">
+
+        <div class="project-image">
+
+          <span class="placeholder">
+            Global Inflation Analysis Prediction
+          </span>
+
+        </div>
+
+        <div class="project-content">
+
+          <div class="number">
+            01
+          </div>
+
+          <h3>
+            Global Inflation Analysis Prediction
+          </h3>
+
+          <p>
+
+            Extracting inflation data from the World Bank API,
+            transforming it with Python and Pandas,
+            loading it into PostgreSQL and preparing
+            it for Tableau visualization.
+
+          </p>
+
+          <div class="tags">
+
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>API</span>
+            <span>PostgreSQL</span>
+            <span>Tableau</span>
+
+          </div>
+
+          <a href="https://github.com/FabriceMUCYO/Global-inflation-analysis-prediction"
+             class="project-link">
+            View Project ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 2 -->
+
+      <article class="project reveal"
+               data-category="web">
+
+        <div class="project-image">
+
+          <span class="placeholder">
+            Lost & Found Management System
+          </span>
+
+        </div>
+
+        <div class="project-content">
+
+          <div class="number">
+            02
+          </div>
+
+          <div class="project-status">
+            In Progress
+          </div>
+
+          <h3>
+            Lost & Found Management System
+          </h3>
+
+          <p>
+
+            A web-based system that helps students and staff report, 
+            search, manage and claim lost and found items on campus 
+            making it easier to recover missing belongings and keep 
+            records organized
+
+          </p>
+
+          <div class="tags">
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Database</span>
+
+          </div>
+
+          <a href="#"
+             class="project-link">
+            View Project ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 3 -->
+
+      <article class="project reveal"
+               data-category="web">
+
+        <div class="project-image">
+
+          <span class="placeholder">
+            AMALIZA EVENTS
+          </span>
+
+        </div>
+
+        <div class="project-content">
+
+          <div class="number">
+            03
+          </div>
+
+          <h3>
+            Amaliza Events
+          </h3>
+
+          <p>
+
+            A responsive event-services website combining
+            professional branding, service presentation,
+            social media integration and direct contact.
+
+          </p>
+
+          <div class="tags">
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>UI Design</span>
+
+          </div>
+
+          <a href="#"
+             class="project-link">
+            View Project ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 4 -->
+
+      <article class="project reveal"
+               data-category="web">
+
+        <div class="project-image">
+
+          <span class="placeholder">
+            CAMPUS LMS
+          </span>
+
+        </div>
+
+        <div class="project-content">
+
+          <div class="number">
+            04
+          </div>
+
+          <h3>
+            Campus Learning Management System
+          </h3>
+
+          <p>
+
+            A university-focused LMS concept designed
+            around courses, students, assignments,
+            learning materials and dashboards.
+
+          </p>
+
+          <div class="tags">
+
+            <span>Web</span>
+            <span>JavaScript</span>
+            <span>Database</span>
+            <span>UI Design</span>
+
+          </div>
+
+          <a href="#"
+             class="project-link">
+            View Project ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 5 -->
+
+      <article class="project reveal"
+               data-category="network">
+
+        <div class="project-image">
+
+          <span class="placeholder">
+            VIRTUAL NETWORK
+          </span>
+
+        </div>
+
+        <div class="project-content">
+
+          <div class="number">
+            05
+          </div>
+
+          <h3>
+            Virtual Network Environment
+          </h3>
+
+          <p>
+
+            A virtual networking environment involving
+            servers, clients, Active Directory, Group Policy,
+            firewall configuration and network monitoring.
+
+          </p>
+
+          <div class="tags">
+
+            <span>VirtualBox</span>
+            <span>Windows Server</span>
+            <span>Linux</span>
+            <span>Active Directory</span>
+            <span>pfSense</span>
+
+          </div>
+
+          <a href="#"
+             class="project-link">
+            View Project ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 6 -->
+
+      <article class="project reveal"
+               data-category="network">
+
+        <div class="project-image">
+
+          <span class="placeholder">
+            NETWORK LAB
+          </span>
+
+        </div>
+
+        <div class="project-content">
+
+          <div class="number">
+            06
+          </div>
+
+          <h3>
+            Network Configuration & Simulation
+          </h3>
+
+          <p>
+
+            Practical networking exercises involving
+            IP addressing, topology design, DHCP,
+            troubleshooting and Cisco Packet Tracer.
+
+          </p>
+
+          <div class="tags">
+
+            <span>Cisco</span>
+            <span>Networking</span>
+            <span>DHCP</span>
+            <span>IP Addressing</span>
+
+          </div>
+
+          <a href="#"
+             class="project-link">
+            View Project ↗
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= JOURNEY ================= -->
+
+<section id="journey">
+
+  <div class="container">
+
+    <div class="label">
+      04 / JOURNEY
+    </div>
+
+    <h2 class="title">
+      Where I'm headed.
+    </h2>
+
+    <p class="subtitle">
+      I'm still learning, building and getting better.
+    </p>
+
+
+    <div class="journey-list">
+
+
+      <div class="journey-item reveal">
+
+        <div class="journey-date">
+          2024 — PRESENT
+        </div>
+
+        <div>
+
+          <h3>
+            Software Engineering — AUCA
+          </h3>
+
+          <p>
+
+            Developing foundations across programming,
+            software engineering, databases, web technologies,
+            networking and system development.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="journey-item reveal">
+
+        <div class="journey-date">
+          2022 — PRESENT
+        </div>
+
+        <div>
+
+          <h3>
+            Freelance & Creative Work
+          </h3>
+
+          <p>
+
+            Exploring freelance work alongside graphic design,
+            digital projects and technology.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="journey-item reveal">
+
+        <div class="journey-date">
+          NOW
+        </div>
+
+        <div>
+
+          <h3>
+            Building Beyond the Classroom
+          </h3>
+
+          <p>
+
+            Working on practical projects, strengthening my
+            technical skills and preparing for professional
+            software engineering opportunities.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact">
+
+  <div class="container">
+
+    <div class="label">
+      05 / CONTACT
+    </div>
+
+    <h2 class="title">
+      Let's build something.
+    </h2>
+
+    <p class="subtitle">
+
+      Internship, freelance project, collaboration,
+      or just want to connect? I'm always open to
+      a good conversation.
+
+    </p>
+
+
+    <a href="https://wa.me/+250791762929"
+       class="btn primary contact-button">
+
+      Get In Touch ↗
+
+    </a>
+
+
+    <div class="social-links">
+
+      <a href="https://github.com/FabriceMUCYO"
+         target="_blank"
+         class="social">
+        GitHub
+      </a>
+
+      <a href="https://www.linkedin.com/in/mucyo-fabrice-824885360/"
+         class="social">
+        LinkedIn
+      </a>
+
+      <a href="https://www.instagram.com/heisfab.___/"
+         class="social">
+        Instagram
+      </a>
+
+      <a href="https://wa.me/+250791762929"
+         class="social">
+        WhatsApp
+      </a>
+
+      <a href="mailto:mucyofabrice9@gmail.com"
+         class="social">
+        Email
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FLOATING SOCIALS ================= -->
+
+<div class="social-float" id="socialFloat">
+
+  <div class="float-menu">
+
+    <!-- GitHub -->
+    <a href="https://github.com/FabriceMUCYO"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="float-link"
+       title="GitHub"
+       aria-label="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/mucyo-fabrice-824885360/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="float-link"
+       title="LinkedIn"
+       aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/heisfab.___/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="float-link"
+       title="Instagram"
+       aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/+250791762929"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="float-link"
+       title="WhatsApp"
+       aria-label="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:mucyofabrice9@gmail.com"
+       class="float-link"
+       title="Email"
+       aria-label="Email">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+
+  </div>
+
+  <!-- Main @ Button -->
+  <button class="float-toggle"
+          id="floatToggle"
+          aria-label="Open social links">
+    @
+  </button>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <span>
+      © 2026 Mucyo Fabrice
+    </span>
+
+    <span>
+      Software Engineering · Kigali, Rwanda
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   FLOATING SOCIAL BUTTON
+========================= */
+
+const float =
+  document.getElementById("socialFloat");
+
+const toggle =
+  document.getElementById("floatToggle");
+
+toggle.addEventListener("click", () => {
+
+  float.classList.toggle("open");
+
+});
+
+
+/* =========================
+   PROJECT FILTER
+========================= */
+
+const filters =
+  document.querySelectorAll(".filter");
+
+const projects =
+  document.querySelectorAll(".project");
+
+filters.forEach(filter => {
+
+  filter.addEventListener("click", () => {
+
+    filters.forEach(f =>
+      f.classList.remove("active")
+    );
+
+    filter.classList.add("active");
+
+    const category =
+      filter.dataset.filter;
+
+    projects.forEach(project => {
+
+      const match =
+        category === "all" ||
+        project.dataset.category === category;
+
+      project.style.display =
+        match ? "block" : "none";
+
+    });
+
+  });
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+  new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("visible");
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(el =>
+    observer.observe(el)
+  );
+
+
+</script>
+
+</body>
+</html>
